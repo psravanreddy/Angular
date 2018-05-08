@@ -13,13 +13,13 @@ jobs:
 
     steps:
       - checkout
-
+      
       # Download and cache dependencies
       - restore_cache:
           keys:
           - Angular-{{ checksum "package.json" }}
           
-      - run: yarn install
+      - run: npm install crypress
 
       - save_cache:
           paths:
@@ -27,7 +27,7 @@ jobs:
           key: Angular-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
+      - run: npm test
       
       - store_test_results:
           path: test-results

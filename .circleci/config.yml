@@ -33,9 +33,9 @@ jobs:
       - run: npm test
       
       - store_test_results:
-          path: test-results
+          path: test-results.war
 
       - store_artifacts:
-          path: test-result
+          path: test-result.war
 
 

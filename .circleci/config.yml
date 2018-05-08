@@ -8,6 +8,9 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
+    docker:
+    # the Docker image with Cypress dependencies
+    - image: cypress/base:8
            
     working_directory: ~/Angular
 
@@ -19,7 +22,7 @@ jobs:
           keys:
           - Angular-{{ checksum "package.json" }}
           
-      - run: npm install crypress
+      - run: npm install 
 
       - save_cache:
           paths:

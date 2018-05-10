@@ -7,10 +7,10 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
-    docker:
+      - image: circleci/node:8
+    #docker:
     # the Docker image with Cypress dependencies
-    - image: cypress/base:8
+    #- image: cypress/base:8
            
     working_directory: ~/Angular
 

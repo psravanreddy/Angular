@@ -73,7 +73,7 @@ jobs:
           command: npm install -g protractor  
           
       - store_test_results:
-          path: Parkway_patientWebApp/test-results.xml
+          path: test-results.xml
           
  workflows:
   version: 2

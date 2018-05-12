@@ -75,5 +75,12 @@ jobs:
       - store_test_results:
           path: Parkway_patientWebApp/test-results.xml
           
-          
+ workflows:
+  version: 2
+  Build-Test-Deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build        
 

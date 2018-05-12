@@ -28,10 +28,7 @@ jobs:
           paths:
             - node_modules
           key: Angular-{{ checksum "package.json" }}
-          
-      - run: 
-           name: Packaging dist
-           command: zip -r dist.zip dist
+           
         
       # run tests!
       - run: npm test

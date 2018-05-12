@@ -67,14 +67,11 @@ jobs:
       - run:
           name: Run unit tests with karma
           command: ng test
-          
-      - run:
-          name: Run unit tests with Protractor
-          command: npm install -g protractor  
-          
+                
       - store_test_results:
           path: test-results.xml
- workflows:
+          
+workflows:
   version: 2
   Build-Test-Deploy:
     jobs:

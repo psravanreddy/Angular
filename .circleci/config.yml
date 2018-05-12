@@ -49,7 +49,6 @@ jobs:
       - run: sudo npm uninstall -g @angular/cli
       - run: sudo npm cache verify
       - run: sudo npm install -g @angular/cli@next
-                
       - run:
           name: Run unit tests with karma
           command: ng test

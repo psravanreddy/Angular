@@ -71,4 +71,9 @@ jobs:
       - run:
           name: Run unit tests with Protractor
           command: npm install -g protractor  
+          
+      - store_test_results:
+          path: Parkway_patientWebApp/test-results.xml
+          
+          
 

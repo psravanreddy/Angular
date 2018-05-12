@@ -28,6 +28,10 @@ jobs:
           paths:
             - node_modules
           key: Angular-{{ checksum "package.json" }}
+          
+      - run: 
+           name: Packaging dist
+           command: zip -r dist.zip dist
         
       # run tests!
       - run: npm test
@@ -38,4 +42,33 @@ jobs:
       - store_artifacts:
           path: test-result
 
+  test:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/Angular
+    steps:
+      - checkout
+      
+      - save_cache:
+          paths:
+            - node_modules
+          key: Angular-{{ checksum "package.json" }}
+      - run:
+          name: Install angularcli
+          command: |
+      - run: sudo npm uninstall -g @angular/cli
+      - run: sudo npm cache verify
+      - run: sudo npm install -g @angular/cli@next
+          #sudo npm install -g @angular/cli@latest
+      
+      - run:
+          name: Run unit tests with karma
+          command: ng test
+          
+      - run:
+          name: Run unit tests with Protractor
+          command: npm install -g protractor  
 

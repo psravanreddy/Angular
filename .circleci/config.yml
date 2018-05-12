@@ -8,41 +8,34 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:8
-    docker:
+    #docker:
       # the Docker image with Cypress dependencies
-      - image: cypress/base:8
+      #- image: cypress/base:8
            
     working_directory: ~/Angular
-
     steps:
       - checkout
-      
       # Download and cache dependencies
       - restore_cache:
           keys:
           - Angular-{{ checksum "package.json" }}
           
       - run: npm install 
-
       - save_cache:
           paths:
             - node_modules
           key: Angular-{{ checksum "package.json" }}
-           
-        
+                  
       # run tests!
       #- run: npm test
-           
       - store_test_results:
           path: test-results
-
       - store_artifacts:
           path: test-result
 
   test:
     docker:
       - image: circleci/node:8
-
     working_directory: ~/Angular
     steps:
       - checkout

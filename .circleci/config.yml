@@ -32,8 +32,5 @@ jobs:
                       
       - store_test_results:
           path: test-results.xml
-      - store_test_artifact:
-          path: test-results.xml
-    
-  
+      
 

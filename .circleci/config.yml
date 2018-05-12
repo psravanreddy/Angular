@@ -41,14 +41,11 @@ jobs:
 
   test:
     docker:
-      - image: circleci/openjdk:8-jdk
-    docker:
       - image: circleci/node:8
 
     working_directory: ~/Angular
     steps:
       - checkout
-      
       - save_cache:
           paths:
             - node_modules

@@ -28,21 +28,7 @@ jobs:
                   
       # run tests!
       #- run: npm test
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-result
 
-  test:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/Angular
-    steps:
-      - checkout
-      - save_cache:
-          paths:
-            - node_modules
-          key: Angular-{{ checksum "package.json" }}
       - run:
           name: Install angularcli
           command: |
@@ -52,16 +38,11 @@ jobs:
       - run:
           name: Run unit tests with karma
           command: ng test
-                
+                      
       - store_test_results:
           path: test-results.xml
-          
-workflows:
-  version: 2
-  Build-Test-Deploy:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build        
+      - store_test_artifact:
+          path: test-results.xml
+    
+  
 
